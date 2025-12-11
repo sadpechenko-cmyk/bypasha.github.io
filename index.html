@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF Gallery</title>
+    <link rel="icon" type="image/x-icon" href="pasha.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 40%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .week-section {
+            margin-bottom: 60px;
+        }
+
+        .week-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .additional-section {
+            margin-top: 60px;
+        }
+
+        .additional-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .additional-item {
+            width: 100%;
+            position: relative;
+        }
+
+        .additional-item video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            border-radius: 4px;
+        }
+
+        h1 {
+            font-family: "Helvetica", "Helvetica Neue", Arial, sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .gif-container {
+            width: 100%;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .gif-container img,
+        .gif-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .description {
+            color: #666;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        /* Планшеты и телефоны */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .week-section {
+                margin-bottom: 40px;
+                min-height: auto;
+            }
+
+            .additional-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .additional-section {
+                margin-top: 40px;
+            }
+        }
+
+        /* Очень маленькие экраны - гарантируем, что минимум одна гифка видна */
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+
+            .week-section {
+                margin-bottom: 30px;
+            }
+
+            .gif-container {
+                margin-bottom: 10px;
+            }
+
+            .description {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="week-section">
+            <h1>Week one</h1>
+            <div class="gif-container">
+                <video src="week1.mp4" autoplay loop muted playsinline preload="metadata"></video>
+            </div>
+            <div class="description">
+                <!-- Здесь будет ваш текст -->
+            </div>
+        </div>
+
+        <div class="week-section">
+            <h1>Week two</h1>
+            <div class="gif-container">
+                <video src="week2.mp4" autoplay loop muted playsinline preload="metadata"></video>
+            </div>
+            <div class="description">
+                <!-- Здесь будет ваш текст -->
+            </div>
+        </div>
+
+        <div class="week-section">
+            <h1>Week three</h1>
+            <div class="gif-container">
+                <video src="week3.mp4" autoplay loop muted playsinline preload="metadata"></video>
+            </div>
+            <div class="description">
+                <!-- Здесь будет ваш текст -->
+            </div>
+        </div>
+
+        <div class="week-section">
+            <h1>Week four</h1>
+            <div class="gif-container">
+                <video src="week4.mp4" autoplay loop muted playsinline preload="metadata"></video>
+            </div>
+            <div class="description">
+                <!-- Здесь будет ваш текст -->
+            </div>
+        </div>
+
+        <div class="week-section">
+            <h1>Week five</h1>
+            <div class="gif-container">
+                <video src="week5.mp4" autoplay loop muted playsinline preload="metadata"></video>
+            </div>
+            <div class="description">
+                <!-- Здесь будет ваш текст -->
+            </div>
+        </div>
+
+        <div class="additional-section">
+            <h1>Additional</h1>
+            <div class="additional-grid">
+                <div class="additional-item">
+                    <video src="add1.mp4" autoplay loop muted playsinline preload="metadata"></video>
+                </div>
+                <div class="additional-item">
+                    <video src="add2.mp4" autoplay loop muted playsinline preload="metadata"></video>
+                </div>
+                <div class="additional-item">
+                    <video src="add3.mp4" autoplay loop muted playsinline preload="metadata"></video>
+                </div>
+                <div class="additional-item">
+                    <video src="add4.mp4" autoplay loop muted playsinline preload="metadata"></video>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Функция для установки правильного aspect ratio на основе размеров видео
+        function setVideoAspectRatio(video, container) {
+            if (video.videoWidth && video.videoHeight) {
+                const aspectRatio = (video.videoHeight / video.videoWidth) * 100;
+                container.style.paddingBottom = aspectRatio + '%';
+            }
+        }
+
+        // Обработка всех видео после загрузки метаданных
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = document.querySelectorAll('video');
+            
+            videos.forEach(function(video) {
+                const container = video.closest('.gif-container') || video.closest('.additional-item');
+                
+                if (container) {
+                    // Если метаданные уже загружены
+                    if (video.readyState >= 1) {
+                        setVideoAspectRatio(video, container);
+                    } else {
+                        // Ждем загрузки метаданных
+                        video.addEventListener('loadedmetadata', function() {
+                            setVideoAspectRatio(video, container);
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
